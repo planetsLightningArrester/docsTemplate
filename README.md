@@ -14,6 +14,12 @@ http://localhost:55555/docs-page.html
 ## Smile
 :)
 
+## Change this file
+./www/docs-page.html
+
+## Example page on
+./www/example.html
+
 # Known issues
 MathJax doesn't like to be inside colapseble `div`s. It doesn't follow the CSS font-size so it might has unexpected behavior on mobile view.
 
