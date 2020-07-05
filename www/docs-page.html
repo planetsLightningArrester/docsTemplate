@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>Eletrônica Básica | Fórmula Tesla UFMG</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="Fórmula Tesla UFMG">
+    <meta name="author" content="Francisco Gomes Soares Sanches Manso">    
+    <link rel="shortcut icon" href="favicon.ico"> 
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome JS-->
+	<script defer src="assets/fontawesome/js/all.min.js"></script>
+	
+	<!-- JQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+	
+	<script>
+		MathJax.Hub.Config({
+			jax: ["input/TeX","output/HTML-CSS"],
+			displayAlign: "left"
+		});
+	</script>
+
+	<!-- Mathjax JS -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.0.5/es5/startup.js" integrity="sha512-dJKCcxAEzVvIi89TXFlYagyMEEOhxtHqSorUk77kh+ss/XeVker5KA/O5/eRn5ri1S83ID4l2SS292jQjY0PCQ==" crossorigin="anonymous"></script> -->
+
+	<!-- Plugins CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+
+    <!-- Theme CSS -->  
+	<link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+	
+	<style>
+		.center {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.mathEquation {
+			font-size: min(2.2vw, 1rem) !important;
+		}
+	</style>
+
+	<script>
+		//Enable popovers
+		$(function () {
+			$('[data-toggle="popover"]').popover();
+		});
+	</script>
+
+</head> 
+
+<body class="docs-page">    
+    <header class="header fixed-top">	    
+        <div class="branding docs-branding">
+            <div class="container-fluid position-relative py-2">
+                <div class="docs-logo-wrapper">
+					<button id="docs-sidebar-toggler" class="docs-sidebar-toggler docs-sidebar-visible mr-2 d-xl-none" type="button">
+	                    <span></span>
+	                    <span></span>
+	                    <span></span>
+	                </button>
+	                <div class="site-logo"><a class="navbar-brand" href="index.html"><img class="logo-icon mr-2" src="assets/images/tesla-logo.png" alt="logo" height="40"><span class="logo-text">Tesla<span class="text-alt">UFMG</span></span></a></div>    
+                </div><!--//docs-logo-wrapper-->
+	            <div class="docs-top-utilities d-flex justify-content-end align-items-center">
+	                <div class="top-search-box d-none d-lg-flex">
+		                <form class="search-form">
+				            <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input">
+				            <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+				        </form>
+	                </div>
+	
+					<ul class="social-list list-inline mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex">
+						<li class="list-inline-item"><a href="#"><i class="fab fa-github fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter fa-fw"></i></a></li>
+		                <li class="list-inline-item"><a href="#"><i class="fab fa-slack fa-fw"></i></a></li>
+		                <li class="list-inline-item"><a href="#"><i class="fab fa-product-hunt fa-fw"></i></a></li>
+		            </ul><!--//social-list-->
+		            <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/coderdocs-free-bootstrap-4-documentation-template-for-software-projects/" class="btn btn-primary d-none d-lg-flex">Download</a>
+	            </div><!--//docs-top-utilities-->
+            </div><!--//container-->
+        </div><!--//branding-->
+    </header><!--//header-->
+    
+    <div class="docs-wrapper">
+	    <div id="docs-sidebar" class="docs-sidebar">
+		    <div class="top-search-box d-lg-none p-3">
+                <form class="search-form">
+		            <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input">
+		            <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+		        </form>
+            </div>
+		    <nav id="docs-nav" class="docs-nav navbar">
+			    <ul class="section-items list-unstyled nav flex-column pb-3">
+				    <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-1"><span class="theme-icon-holder mr-2"><i class="fas fa-book"></i></span>Circuitos Lineares | Parte 1</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">Eletricidade e carga elétrica</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-2">Circuito elétrico</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-3">Tensão elétrica</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-4">Corrente elétrica</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-5">Potência elétrica</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-6">Resistência elétrica</a></li>
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-2"><span class="theme-icon-holder mr-2"><i class="fas fa-bolt"></i></span>Leis de Ohm e Kirchhoff</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">Primeira Lei de Ohm</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-2">Segunda Lei de Ohm</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-4">Lei de Kirchhoff das Correntes</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-5">Lei de Kirchhoff das Tensões</a></li>
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-3"><span class="theme-icon-holder mr-2"><i class="fas fa-divide"></i></span>Divisores resistivos</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">Divisor de tensão</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Divisor de corrente</a></li>
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-4"><span class="theme-icon-holder mr-2"><i class="fas fa-cogs"></i></span>Integrations</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Section Item 4.1</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-2">Section Item 4.2</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-3">Section Item 4.3</a></li>			    </ul>
+
+		    </nav><!--//docs-nav-->
+	    </div><!--//docs-sidebar-->
+	    <div class="docs-content">
+		    <div class="container">
+			    <article class="docs-article" id="section-1">
+				    <header class="docs-header">
+						<h1 class="docs-heading">
+							Introdução <span class="docs-time">
+								<span class="badge badge-info">Livre</span>
+								<span class="badge badge-dark">Assinantes</span>
+								<br>
+								Última atualização: 2020-07-02
+								<br>
+								Autor: <a class="theme-link" href="https://br.linkedin.com/in/eric-drumond/pt-br" target="_blank"><i class="fas fa-external-link-alt"></i>Eric Drumond Rocha</a>
+							</span>
+							
+						</h1>
+						
+					    <section class="docs-intro">
+						    <p>Enquanto a eletricidade é uma forma de energia devida à presença e ao fluxo de carga elétrica, a eletrônica é a ciência que lida com o controle dessa energia. Esse controle é realizado por dispositivos (componentes eletrônicos) que selecionam, direcionam, transportam, armazenam e manipulam o elétron com a finalidade de transmitir e processar informações.</p>
+							<p>Em um caráter mais formal, iremos abordar nesta série de postagens de Fundamentos de Elétrica e Eletrônica <b>(EBASICS)</b> conceitos elementares, componentes eletrônicos, sistemas eletrônicos e programação. Nesta primeira parte, apresentaremos algumas definições essenciais para a série.</p>
+						</section><!--//docs-intro-->					
+						
+				    </header>
+				    <section class="docs-section" id="item-1-1">
+						<h2 class="section-heading">Eletricidade e carga elétrica</h2>
+						<p>A <b>eletricidade</b> é o ramo da Física responsável pelo estudo dos fenômenos resultantes da presença e do fluxo de carga elétrica. A carga elétrica é uma propriedade das partículas elementares que compõem o átomo, sendo a carga elétrica elementar a menor quantidade de carga que pode ser encontrada na natureza. Seu valor é igual a 1,6x10^-19 <b>coulombs (C)</b> e é atribuído à carga do elétron (com sinal negativo) e à do próton (com sinal positivo).</p> 
+						<p>Um coulomb é definido como a quantidade de carga elétrica que atravessa em um segundo a seção transversal de um condutor percorrido por uma corrente igual a 1 <b>Ampère (A)</b>.</p>
+
+						<div class="callout-block callout-block-success">
+                            <div class="content">
+                                <h4 class="callout-title">
+	                                <span class="callout-icon-holder mr-1">
+		                                <i class="fas fa-heart"></i>
+		                            </span><!--//icon-holder-->
+	                                Dica
+	                            </h4>
+                                <p>Pereba que a unidade <i>Coulomb</i> é definida partindo-se do conhecimento de corrente elétrica, medida em <i>Ampère</i>, já que suas unidades são interdependentes.</p>
+                            </div><!--//content-->
+                        </div><!--//callout-block-->                        
+                       
+					</section><!--//section-->
+					
+					<section class="docs-section" id="item-1-2">
+						<h2 class="section-heading">Circuito elétrico</h2>
+						<p>O circuito elétrico é um caminho fechado pelo qual passa a carga elétrica. Esse caminho é construído por elementos de circuito (fontes de tensão elétrica, resistores, etc.) e condutores (fios elétricos que ligam os elementos de circuito). A <a href="#figura1">Figura 1</a> mostra um exemplo de um circuito elétrico básico com uma fonte de tensão elétrica, um resistor e condutores para interconectar os componentes.</p>
+						<h5>Elementos básico do circuito elétrico</h5><small>Clique na imagem para mais detalhes.</small><br>
+						<figure class="figure docs-figure py-3">
+						    <a id="figura1" href="assets/images/features/fonteResistor.png" data-title="Elementos básicos do circuito elétrico" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="assets/images/features/fonteResistor.gif" alt="" style="width: 600px;"></a>
+						    <figcaption class="figure-caption mt-3">Figura 1 - Elementos básicos do circuito elétrico.<br><i class="fas fa-info-circle mr-2"></i>Créditos: imagem acima feita por <a  class="theme-link" href="https://www.linkedin.com/in/francisco-gomes-0b0851163/" target="_blank"><i class="fas fa-external-link-alt"></i>Francisco Gomes</a>.</figcaption>
+						</figure>
+					</section><!--//section-->
+					
+					<section class="docs-section" id="item-1-3">
+						<h2 class="section-heading">Tensão elétrica</h2>
+						<p>A <b>tensão elétrica</b> é uma grandeza elétrica que indica a capacidade que a <a class="scrollto" data-toggle="popover" data-trigger="hover" title="Carga elétrica" data-html="true" data-content="<img src='./assets/images/features/atomo.png' class='center' width='200'>Propriedade das partículas elementares que compõem o átomo, sendo a <b>carga elétrica elementar</b> a menor quantidade de carga que pode ser encontrada na natureza." href="#item-1-1" >carga elétrica</a> tem de realizar trabalho. No <a data-toggle="popover" data-trigger="hover" title="Sistema Internacional" data-html="true" data-content="O <b>sistema internacional</b> é uma regulamentação das sete unidades bases de medidas. São elas o segundo <b>[s]</b>, o metro <b>[m]</b>, o kilograma <b>[kg]</b>, o ampère <b>[A]</b>, o kelvin <b>[k]</b>, o mol <b>[mol]</b> e a candela <b>[cd]</b>." href="http://www.inmetro.gov.br/consumidor/pdf/Resumo_SI.pdf" target="_blank">Sistema Internacional (SI)</a>, a unidade da tensão elétrica é <b>Volt (V)</b>. A tensão elétrica também é chamada de <i>Diferença de Potencial (ddp)</i> e <i>Força Eletromotriz (f.e.m.)</i>.</p>
+						<p>Quando se coloca um corpo carregado com carga elétrica em contato com outro corpo descarregado, haverá deslocamento de cargas elétricas até que a mesma tensão elétrica seja alcançada em ambos os corpos, atingindo um equilíbrio.</p>
+						<p>A tensão elétrica é uma grandeza mensurável, ou seja, pode ser medida ao utilizar-se um voltímetro, nome que se dá ao instrumento utilizado para medir a tensão elétrica. A <a class="scrollto" href="#figura2">Subfigura 2a</a> mostra um exemplo de voltímetro digital (em um multímetro moderno) e um exemplo de voltímetro analógico (pouco utilizado atualmente) é exibido na <a class="scrollto" href="#figura2">Subfigura 2b</a>. Para simbolizar a tensão elétrica utilizaremos a letra V.</p>
+						<figure class="figure docs-figure py-3">
+						    <a id="figura2" href="assets/images/features/voltimetros.png" data-title="Medidores de tensão - Voltímetros" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="assets/images/features/voltimetros.png" alt="" style="width: 600px;"></a>
+						    <figcaption class="figure-caption mt-3">Figura 2 - Medidores de tensão - Voltímetros.<br><i class="fas fa-info-circle mr-2"></i>Créditos: imagens acima retiradas de <a  class="theme-link" href="https://www.fluke.com/pt-br/produto/teste-eletrico/multimetros-digitais/fluke-17b-plus" target="_blank"><i class="fas fa-external-link-alt"></i>Fluke</a> e <a  class="theme-link" href="http://www.hikariferramentas.com.br/multimetro-analogico/280/104/" target="_blank"><i class="fas fa-external-link-alt"></i>Hikari</a></figcaption>
+						</figure>
+						<p>As <b>fontes de tensão</b> elétrica ou <b>geradores</b> de tensão são elementos capazes de transformar energia (química, nuclear, térmica, hidráulica) em energia elétrica, mantendo uma diferença de potencial (tensão elétrica) em seus terminais. Vale ressaltar que existem a fonte de <b>tensão contínua</b> e a fonte de <b>tensão alternada</b>. A pilha e a bateria são exemplos de fontes de tensão contínua e são geralmente indicados pelos símbolos da <a href="#figura3">Subfigura 3a</a>. Além disso, a tensão no tempo assemelha-se à <a href="#figura2">Subfigura 3b</a>, que idealmente é constante: sem variação no nível de tensão e sem alternância na polaridade da tensão (positiva/negativa).</p>
+						<figure class="figure docs-figure py-3">
+						    <a id="figura3" href="assets/images/features/fonteTensaoConstante.png" data-title="Fontes de tensão constante" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="assets/images/features/fonteTensaoConstante.png" alt="" style="width: 600px;"></a>
+						    <figcaption class="figure-caption mt-3">Figura 3 - Fontes de tensão constate.<br><i class="fas fa-info-circle mr-2"></i>Créditos: imagem acima feita por <a  class="theme-link" href="https://www.linkedin.com/in/francisco-gomes-0b0851163/" target="_blank"><i class="fas fa-external-link-alt"></i>Francisco Gomes</a>.</figcaption>
+						</figure>
+						<p>Por outro lado, os geradores de tensão de corrente alternada são usualmente representados pelo símbolo da <a class="scrollto" href="#figura4">Figura 4</a> e, no caso da tensão de corrente alternada da rede elétrica, a tensão é senoidal, como também mostra a <a class="scrollto" href="#figura4">Figura 4</a>.</p>
+						<figure class="figure docs-figure py-3">
+						    <a id="figura4" href="assets/images/features/fonteTensaoAlternada.png" data-title="Fontes de tensão alternada" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="assets/images/features/fonteTensaoAlternada.png" alt="" style="width: 600px;"></a>
+						    <figcaption class="figure-caption mt-3">Figura 4 - Fontes de tensão alternada.<br><i class="fas fa-info-circle mr-2"></i>Créditos: imagem acima feita por <a  class="theme-link" href="https://www.linkedin.com/in/francisco-gomes-0b0851163/" target="_blank"><i class="fas fa-external-link-alt"></i>Francisco Gomes</a>.</figcaption>
+						</figure>
+						<div class="callout-block callout-block-success">
+                            <div class="content">
+                                <h4 class="callout-title">
+	                                <span class="callout-icon-holder mr-1">
+		                                <i class="fas fa-question-circle"></i>
+		                            </span><!--//icon-holder-->
+	                                Você sabia
+	                            </h4>
+								<p>Um Volt é definido como o consumo de um Joule de energia por um Coulomb de <a class="scrollto" data-toggle="popover" data-trigger="hover" title="Carga elétrica" data-html="true" data-content="<img src='./assets/images/features/atomo.png' class='center' width='200'>Propriedade das partículas elementares que compõem o átomo, sendo a <b>carga elétrica elementar</b> a menor quantidade de carga que pode ser encontrada na natureza." href="#item-1-1" >carga elétrica</a>, o que resulta na equação abaixo:</p>
+								<p class="mathEquation">$$ Tensão(V) = \frac{Energia(J)}{CargaElétrica(C)} \rightarrow [V]=\frac{[J]}{[C]} \tag{1} $$</p>
+                            </div><!--//content-->
+                        </div><!--//callout-block--> 
+					</section><!--//section-->
+					
+					<section class="docs-section" id="item-1-4">
+						<h2 class="section-heading">Corrente elétrica</h2>
+						<p>Definimos como <b>corrente elétrica</b> a movimentação ordenada de <a class="scrollto" data-toggle="popover" data-trigger="hover" title="Carga elétrica" data-html="true" data-content="<img src='./assets/images/features/atomo.png' class='center' width='200'>Propriedade das partículas elementares que compõem o átomo, sendo a <b>carga elétrica elementar</b> a menor quantidade de carga que pode ser encontrada na natureza." href="#item-1-1" >cargas elétricas</a> num condutor. No <a class="scrollto" data-toggle="popover" data-trigger="hover" title="Sistema Internacional" data-html="true" data-content="O <b>sistema internacional</b> é uma regulamentação das sete unidades bases de medidas. São elas o segundo <b>[s]</b>, o metro <b>[m]</b>, o kilograma <b>[kg]</b>, o ampère <b>[A]</b>, o kelvin <b>[k]</b>, o mol <b>[mol]</b> e a candela <b>[cd]</b>." href="http://www.inmetro.gov.br/consumidor/pdf/Resumo_SI.pdf" target="_blank">SI</a>, a unidade de corrente elétrica é <b>Ampère (A)</b>. Para efeito de análise, a corrente elétrica poderá circular em dois sentidos:</p>
+						<ul>
+						    <li><strong class="mr-1">Sentido real:</strong> resultante do movimento de cargas negativas</li>
+						    <li><strong class="mr-1">Sentido convencional:</strong> resultante do movimento de cargas positivas</li>
+						</ul>
+						<p>No fim, ambos os sentidos produzem o mesmo efeito elétrico e o mesmo resultado de análise, desde que o sentido adotado seja mantido do início ao fim da análise. Aqui, como também é feito na maioria da literatura, adotamos o sentido convencional de corrente elétrica. A <a href="#figura5">Figura 5</a> mostra o sentido da corrente elétrica para cada abordagem.</p>
+						<figure class="figure docs-figure py-3">
+						    <a id="figura5" href="assets/images/features/01-SentidoCorrente.gif" data-title="Sentido convencional da corrente" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="assets/images/features/01-SentidoCorrente.gif" alt="Sentido convencional" style="width: 600px;"></a>
+							<a href="assets/images/features/02-SentidoCorReverso.gif" data-title="Sentido real da corrente" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="assets/images/features/02-SentidoCorReverso.gif" alt="Sentido real" style="width: 600px;"></a>
+						    <figcaption class="figure-caption mt-3">Figura 5 - Sentido convenconal da corrente (em cima) e sentido real da corrente (embaixo).<br><i class="fas fa-info-circle mr-2"></i>Créditos: imagem acima feita por <a  class="theme-link" href="https://www.linkedin.com/in/francisco-gomes-0b0851163/" target="_blank"><i class="fas fa-external-link-alt"></i>Francisco Gomes</a>.</figcaption>
+						</figure>
+						<p>Percebe-se que, no <b>sentido convencional</b> da corrente, a corrente flui saindo pelo terminal positivo da fonte de alimentação e retorna pelo terminal negativo. No sentido real, acontece o fluxo contrário. Para simbolizar a corrente elétrica utilizaremos a letra I. Para se medir a corrente elétrica, pode-se utilizar um amperímetro ou um multímetro moderno com tal função. A intensidade da corrente elétrica pode ser determinada através da equação:</p>
+						<div class="callout-block callout-block-info" style="width: 75%; margin: auto;">
+							<p class="mathEquation">$$ I=\frac{dq}{dt} \rightarrow [A]=\frac{[C]}{[s]} \tag{2}$$</p>
+						</div>
+						<p>Onde <i><b>dq</b></i> é a <b>variação da carga</b> em coulombs [C] e <i><b>dt</b></i> é a <b>variação de tempo</b> em segundos [s]. A partir dessa relação, é possível calcular a variação de carga quando se conhecendo os valores de corrente e tempo. Esta abordagem é utilizada, por exemplo, pela equipe de Baterias do <a href="https://formulateslaufmg.wixsite.com/teslaufmg" target="_blank"><img src='assets/images/tesla-logo-cinza.png' height='20px'>Fórmula Tesla UFMG</a> para <b>estimar a carga da bateria</b> do veículo que foi consumida ou carregada.</p>
+						<p>Em circuitos elétricos, é comum encontrar configurações de componentes que entregam uma determinada corrente contínua constante para outros circuitos. Estes circuitos são representados pelo símbolo de <b>fonte de corrente</b>, que é mostrado na <a href="#figura6">Figura 6</a>.</p>
+						<figure class="figure docs-figure py-3">
+						    <a id="figura6" href="assets/images/features/fonteCorrente.png" data-title="Fontes de corrente" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="assets/images/features/fonteCorrente.png" alt="" style="width: 600px;"></a>
+						    <figcaption class="figure-caption mt-3">Figura 6 - Fontes de corrente.<br><i class="fas fa-info-circle mr-2"></i>Créditos: imagem acima feita por <a  class="theme-link" href="https://www.linkedin.com/in/francisco-gomes-0b0851163/" target="_blank"><i class="fas fa-external-link-alt"></i>Francisco Gomes</a>.</figcaption>
+						</figure>
+						<div class="callout-block callout-block-success">
+                            <div class="content">
+                                <h4 class="callout-title">
+	                                <span class="callout-icon-holder mr-1">
+		                                <i class="fas fa-question-circle"></i>
+		                            </span><!--//icon-holder-->
+	                                Você sabia
+	                            </h4>
+								<p>O <img src="./assets/images/tesla-logo-cinza.png" height="20px" alt=""> <a data-toggle="popover" data-trigger="hover" title="NK319" data-html="true" data-content="<img src='./assets/images/nk319.png' class='center' width='200'> <p>O NK319 foi feito ao longo do ano de 2019 e conquistou o 5º lugar geral na categoria elétrico da competição Fórmula SAE Brasil.</p>" href="https://formulateslaufmg.wixsite.com/teslaufmg/2019" target="_blank">NK319</a> pode demandar uma corrente de pico de até <b>400 A!</b><img class="mt-2" src="assets/images/teslaAcc.gif" alt="" style="width: 50vw"/></p>
+                            </div><!--//content-->
+                        </div><!--//callout-block--> 
+					</section><!--//section-->
+
+					<section class="docs-section" id="item-1-5">
+						<h2 class="section-heading">Potência elétrica</h2>
+						<p>A <b>potência elétrica</b> é a taxa com que energia é absorvida ou fornecida num circuito. Pode ser interpretado pela quantidade de energia, em <i>Joules</i>, consumida ou fornecida ao longo do tempo, em <i>segundos</i>. No <a data-toggle="popover" data-trigger="hover" title="Sistema Internacional" data-html="true" data-content="O <b>sistema internacional</b> é uma regulamentação das sete unidades bases de medidas. São elas o segundo <b>[s]</b>, o metro <b>[m]</b>, o kilograma <b>[kg]</b>, o ampère <b>[A]</b>, o kelvin <b>[k]</b>, o mol <b>[mol]</b> e a candela <b>[cd]</b>." href="http://www.inmetro.gov.br/consumidor/pdf/Resumo_SI.pdf" target="_blank">SI</a>, a unidade de potência elétrica é <b>Watt (W)</b>.</p>
+						<div class="callout-block callout-block-info">
+							<p class="mathEquation">$$ Potência(W)=\frac{Energia(J)}{tempo(s)} \rightarrow [W]=\frac{[J]}{[s]} \tag{3} $$</p>
+						</div><!-- //fórmula -->
+						<p>Uma fonte de energia, como uma fonte de tensão, poderá produzir ou entregar potência somente enquanto estiver conectada a uma carga que a absorva. Lâmpadas e aquecedores, por exemplo, absorvem potência elétrica e a convertem em luz e calor. Quanto maior a sua potência em Watts, maior é a potência elétrica consumida/convertida. A <b>potência elétrica (P)</b> corresponde ao produto de <a data-toggle="popover" data-trigger="hover" title="Tensão elétrica" data-html='true' data-content="<img src='./assets/images/features/01-SentidoCorrente.gif' class='center' width='200'> <p>A <b>tensão elétrica</b> é uma grandeza elétrica que indica a capacidade que a carga elétrica tem de realizar trabalho. No SI, a unidade de tensão elétrica é o <b>Volt (V)</b>.</p>" href="#item-1-3" class="scrollto">tensão elétrica (V)</a> e <a data-toggle="popover" data-trigger="hover" title="Corrente elétrica" data-html="true" data-content="<img src='./assets/images/features/01-SentidoCorrente.gif' class='center' width='200'> <p>A <b>corrente elétrica</b> é a movimentação ordenada de cargas elétricas num condutor. No SI, a unidade de corrente elétrica é o <b>Ampère (A)</b>.</p>" href="#item-1-4" class="scrollto">corrente elétrica (I)</a>.</p>
+						<div class="callout-block callout-block-info">
+							<p id="eq4" class="mathEquation">$$ P=V.I \rightarrow [W]=[V].[A]=\frac{[J]}{[C]}.\frac{[C]}{[s]}=\frac{[J]}{[s]} \tag{4} $$</p>
+						</div><!-- //fórmula -->
+						<p>Desta forma, os valores de tensão e corrente elétrica relacionam-se com o valor de potência elétrica de acordo com a <a href="#eq4">Equação 4</a>. A <a href="#figura7">Figura 7</a> ilustra a relação entre as grandezas.</p>
+						<figure class="figure docs-figure py-3">
+						    <a id="figura7" href="assets/images/features/RelacaoPotencia.png" data-title="Relação entre Potência, Tensão e Corrente" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="assets/images/features/RelacaoPotencia.png" alt="" style="width: 400px;"></a>
+						    <figcaption class="figure-caption mt-3">Figura 7 - Relação entre Potência, Tensão e Corrente.<br><i class="fas fa-info-circle mr-2"></i>Créditos: imagem acima feita por <a  class="theme-link" href="https://www.linkedin.com/in/francisco-gomes-0b0851163/" target="_blank"><i class="fas fa-external-link-alt"></i>Francisco Gomes</a>.</figcaption>
+						</figure>
+						<p>Em qualquer cálculo de potência, caso o valor de potência calculado seja positivo, haverá absorção ou consumo de potência. Por outro lado, para cálculos em que a potência calculada seja negativa, haverá produção, geração ou fornecimento de potência elétrica. Geralmente trata-se de fontes de potência elétrica, tais como baterias ou geradores.</p>
+						<p>Quando se observa componentes elétricos, geralmente pode-se ver um determinado valor de potência (em Watts) que indica a taxa máxima que o componente converte a potência elétrica em outra forma de energia tal como calor, luz, movimento, etc. São exemplos: um resistor de <i>1/4 W</i>, uma lâmpada de <i>100 W</i>, etc.</p>
+						<div class="callout-block callout-block-info">
+                            <div class="content">
+                                <h4 class="callout-title">
+	                                <span class="callout-icon-holder mr-1">
+		                                <i class="fas fa-info-circle"></i>
+		                            </span><!--//icon-holder-->
+	                                Info
+	                            </h4>
+								<p>Sabemos que a unidade de potência é <b>Watt</b>, mas alguns equipamentos, tais como motores, podem utilizar outras formas de medição de potência. Um exemplo seria o <b>Horsepower (hp)</b>, onde:</p>
+								<p>$$1 hp = 745,7 W$$</p>
+								<p>Além disso existe uma outra unidade de medida similar usada que é o <b>Cavalo-Vapor (cv)</b>.</p>
+								<p>$$1 cv = 735,499 W$$</p>
+                            </div><!--//content-->
+						</div><!--//callout-block--> 
+						<div class="callout-block callout-block-success">
+                            <div class="content">
+                                <h4 class="callout-title">
+	                                <span class="callout-icon-holder mr-1">
+		                                <i class="fas fa-question-circle"></i>
+		                            </span><!--//icon-holder-->
+	                                Você sabia
+	                            </h4>
+								<p>O <img src="./assets/images/tesla-logo-cinza.png" height="20px" alt=""> <a data-toggle="popover" data-trigger="hover" title="NK319" data-html="true" data-content="<img src='./assets/images/nk319.png' class='center' width='200'> <p>O NK319 foi feito ao longo do ano de 2019 e conquistou o 5º lugar geral na categoria elétrico da competição Fórmula SAE Brasil.</p>" href="https://formulateslaufmg.wixsite.com/teslaufmg/2019" target="_blank">NK319</a> possui uma potência de pico de <b>54 cv ou 39,7 kW!</b><img class="mt-2" src="assets/images/teslaEnduro.gif" alt="" style="width: 50vw"/></p>
+                            </div><!--//content-->
+                        </div><!--//callout-block--> 
+					</section><!--//section-->
+
+					<section class="docs-section" id="item-1-6">
+						<h2 class="section-heading">Resistência elétrica</h2>
+						<p>A resistência elétrica é a capacidade de um material de resistir ao fluxo de corrente elétrica ou, mais especificamente, ao fluxo de carga elétrica num circuito. O elemento de circuito que realiza esta função perfeitamente é chamado de resistor. </p>
+						<p>A resistência é um elemento de circuito medido em Ohms (\(\Omega\)), geralmente acompanhado com prefixos mili (\(1 m\Omega = 10^{−3}\Omega)\), kilo (\(1 kΩ = 10^3\Omega\)) ou mega (\(1 M\Omega = 10^6\Omega\)). A <a href="#figura8">Figura 8</a> mostra os símbolos comumente utilizados para representar a resistência elétrica de valor fixo, de valor variável e também de um resistor que varia de acordo com a luz (LDR).</p>
+						<figure class="figure docs-figure py-3">
+						    <a id="figura8" href="assets/images/features/resistores.png" data-title="Simbologia do resistor" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="assets/images/features/resistores.png" alt="" style="width: 500px;"></a>
+						    <figcaption class="figure-caption mt-3">Figura 8 - Simbologia do resistor.<br><i class="fas fa-info-circle mr-2"></i>Créditos: imagem acima feita por <a  class="theme-link" href="https://www.linkedin.com/in/francisco-gomes-0b0851163/" target="_blank"><i class="fas fa-external-link-alt"></i>Francisco Gomes</a>.</figcaption>
+						</figure>
+						<p>Componentes de baixa resistência, por exemplo \(1 Ω\) ou menos, implica que são bons condutores, feitos de materiais tais como cobre, alumínio ou carbono. Por outro lado, alta resistência, por exemplo \(1 M\Omega\) ou mais, implica que são maus condutores, feitos de materiais tais como vidro, porcelana ou plástico.</p>
+						<p>O resistor é classificado como um elemento de circuito passivo e não pode entregar ou armazenar energia. Por outro lado, resistores absorvem potência e a transformam em calor ou luz. A potência em um resistor é sempre positiva, independente da polaridade da tensão ou direção da corrente.</p>
+					</section><!--//section-->
+					
+			    </article>
+			    
+			    <article class="docs-article" id="section-2">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">Leis de Ohm e Kirchhoff</h1>
+					    <section class="docs-intro">
+						    <p>Nesta seção serão apresentados as leis fundamentais da eletrodinâmica geral.</p>
+						</section><!--//docs-intro-->
+				    </header>
+				     <section class="docs-section" id="item-2-1">
+						<h2 class="section-heading">Primeira Lei de Ohm</h2>
+						<p>A Primeira Lei de Ohm nos diz que a razão entre a tensão elétrica aplicada no circuito e a corrente é igual à resistência elétrica.</p>
+						<div id="eq5" class="callout-block callout-block-info" style="width: 75%; margin: auto;">
+							<p class="mathEquation">$$ R=\frac{V}{I} \rightarrow [\Omega]=\frac{[V]}{[A]} \tag{5}$$</p>
+						</div>
+						<p>Onde V é a tensão elétrica em Volt (V), R é a resistência elétrica em Ohms (Ω) e I é a corrente elétrica em Ampère (A).</p>
+						<p>A Lei de Ohm é útil para analisar circuitos resistivos quando deseja-se descobrir uma determinada resistência a partir de valores conhecidos de tensão e corrente. Da mesma forma, pode-se descobrir informações sobre a tensão e sobre a corrente elétrica num circuito quando se tem as demais variáveis. A <a href="#figura9">Figura 9</a> evidencia as relações.</p>
+						<figure class="figure docs-figure py-3">
+						    <a id="figura9" href="assets/images/features/RelacaoOhm.png" data-title="Primeira Lei de Ohm" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="assets/images/features/RelacaoOhm.png" alt="" style="width: 500px;"></a>
+						    <figcaption class="figure-caption mt-3">Figura 9 - Primeira Lei de Ohm.<br><i class="fas fa-info-circle mr-2"></i>Créditos: imagem acima feita por <a  class="theme-link" href="https://www.linkedin.com/in/francisco-gomes-0b0851163/" target="_blank"><i class="fas fa-external-link-alt"></i>Francisco Gomes</a>.</figcaption>
+						</figure>
+					</section><!--//section-->
+					
+					<section class="docs-section" id="item-2-2">
+						<h2 class="section-heading">Segunda Lei de Ohm</h2>
+						<p>A Segunda Lei de Ohm estabelece a relação entre a resistência de um material com sua natureza e dimensões. Quanto à natureza, os materiais se diferenciam por suas resistividades. Quanto às dimensões do material, são importantes o seu comprimento L [m] e a área da seção transversal A [m²].</p>
+						<p>A resistividade elétrica (também resistência elétrica específica) é uma medida da oposição de um material ao fluxo de corrente eléctrica. Quanto mais baixa for a resistividade, mais facilmente o material permite a passagem de uma carga eléctrica. Sua unidade no SI é o ohm-metro [\(\Omega.metro\)] e o seu símbolo é o \(\rho\).</p>
+						<figure class="figure docs-figure py-3">
+						    <a id="figura10" href="assets/images/features/Resistividade.png" data-title="Segunda Lei de Ohm" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="assets/images/features/Resistividade.png" alt="" style="width: 500px;"></a>
+						    <figcaption class="figure-caption mt-3">Figura 10 - Condutor.<br><i class="fas fa-info-circle mr-2"></i>Créditos: imagem acima feita por <a  class="theme-link" href="https://www.linkedin.com/in/francisco-gomes-0b0851163/" target="_blank"><i class="fas fa-external-link-alt"></i>Francisco Gomes</a>.</figcaption>
+						</figure>
+						<p>A resistência <i>R</i> de um material é diretamente proporcional à sua resistividade (\(\rho\)) e ao seu comprimento <i>L</i>, e inversamente proporcional à área da seção transversal <i>A</i>. A <a href="#eq6">Equação 6</a> apresenta a Segunda Lei de Ohm.</p>
+						<div id="eq6" class="callout-block callout-block-info" style="width: 75%; margin: auto;">
+							<p class="mathEquation">$$ R=\rho.\frac{L}{A} \rightarrow [\Omega]=[\Omega.m].\frac{[m]}{[m²]}=[\Omega] \tag{6}$$</p>
+						</div>
+						<p>Portanto, a resistência elétrica aumenta com o aumento da resistividade do material, com o aumento do seu comprimento e com a diminuição da área de sua seção transversal. A <a href="#tabela1">Tabela 1</a> mostra a resistividade de materiais diversos utilizados na indústria.</p>
+						<h5 id="tabela1">Tabela 1 - Resistividade dos materiais</h5>
+						<div class="table-responsive my-4" style="text-align: center; width: min(max(80vw, 300px), 500px); margin: auto;">
+							<table class="table table-striped table-sm">
+								<thead>
+									<tr>
+										<th scope="col">Material</th>
+										<th scope="col">Resistividade (\(\Omega.m\))</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Prata</td>
+										<td>\(1,59.10^{-8}\)</td>
+									</tr>
+									<tr>
+										<td>Cobre</td>
+										<td>\(1,68.10^{-8}\)</td>
+									</tr>
+									<tr>
+										<td>Alumínio</td>
+										<td>\(2,65.10^{-8}\)</td>
+									</tr>
+									<tr>
+										<td>Tungstênio</td>
+										<td>\(5,60.10^{-8}\)</td>
+									</tr>
+									<tr>
+										<td>Ferro</td>
+										<td>\(9,70.10^{-8}\)</td>
+									</tr>
+									<tr>
+										<td>Platina</td>
+										<td>\(1,06.10^{-7}\)</td>
+									</tr>
+									<tr>
+										<td>Manganina</td>
+										<td>\(4,82.10^{-7}\)</td>
+									</tr>
+									<tr>
+										<td>Silício</td>
+										<td>\(2,3.10^{3}\)</td>
+									</tr>
+									<tr>
+										<td>Vidro</td>
+										<td>\(10^{11} - 10^{15}\)</td>
+									</tr>
+								</tbody>
+							</table>
+						</div><!--//table-responsive-->
+						<div class="callout-block callout-block-success">
+                            <div class="content">
+                                <h4 class="callout-title">
+	                                <span class="callout-icon-holder mr-1">
+		                                <i class="fas fa-question-circle"></i>
+		                            </span><!--//icon-holder-->
+	                                Você sabia
+	                            </h4>
+								<p>Nos resitores variáveis, como o potenciômetro rotativo, a resistência entre o terminal central e uma das extremidades depende do comprimento do material resistivo interno, que é proporcional ao ângulo de giro da haste. A <a href="#figura12">Figura 12</a> mostra como isso é montado.</p>
+								<figure class="figure docs-figure py-3">
+									<a id="figura12" href="assets/images/features/potenciometro.png" data-title="Potenciometro" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="assets/images/features/potenciometro.png" alt="" style="width: 500px;"></a>
+									<figcaption class="figure-caption mt-3">Figura 12 - Potenciometro.<br><i class="fas fa-info-circle mr-2"></i>Créditos: <b>FALTA REFERÊNCIA</b>.</figcaption>
+								</figure>
+                            </div><!--//content-->
+                        </div><!--//callout-block--> 
+					</section><!--//section-->
+
+					<section class="docs-section" id="item-2-3">
+						<h2 class="section-heading">Lei de Kirchhoff das Correntes</h2>
+						<p>A Lei de Kirchhoff das Correntes, também chamada de Primeira Lei de Kirchhoff, lida com a conservação de carga que entra e sai de uma junção num circuito elétrico.</p>
+						<p>Para determinar a quantidade ou magnitude de corrente elétrica que flui num circuito elétrico ou eletrônico, é necessário utilizar certas leis e regras que nos permite escrever essas correntes em forma de uma equação. Esse conjunto de equações são estabelecidas pela Lei de Kirchhoff das Correntes.</p>
+						<div class="alert alert-secondary">
+							<i>Em um nó, a soma das correntes elétricas que entram é igual à soma das correntes que saem, ou seja, um nó não acumula carga (não há perda de carga elétrica).</i>
+						</div>
+						<p>A ideia de Kirchhoff é comumente conhecida como Conservação da Carga. A corrente é conservada no ponto de junção, sem perdas na corrente elétrica. A <a href="#figura13">Figura 13</a> mostra um exemplo de junção simples. A corrente que sai à direita do nó é a soma algébrica das duas correntes que entram nesse mesmo nó.</p>
+						<figure class="figure docs-figure py-3">
+						    <a id="figura13" href="assets/images/features/03-LKC.png" data-title="Lei de Kirchhoff das Correntes (LKC)" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="assets/images/features/03-LKC.gif" alt="" style="width: 500px;"></a>
+						    <figcaption class="figure-caption mt-3">Figura 13 - Lei de Kirchhoff das Correntes (LKC).<br><i class="fas fa-info-circle mr-2"></i>Créditos: imagem acima feita por <a  class="theme-link" href="https://www.linkedin.com/in/francisco-gomes-0b0851163/" target="_blank"><i class="fas fa-external-link-alt"></i>Francisco Gomes</a>.</figcaption>
+						</figure>
+						<p>Pode-se aplicar essa lei para qualquer número de ramificações nos nós tanto como a soma das correntes que entram quanto a soma das correntes que saem. Em outras palavras, a soma matemática das correntes que entram ou que saem de um nó em qualquer direção sempre será igual a zero.</p>
+						<div id="eq7" class="callout-block callout-block-info" style="width: 50%; margin: auto;">
+							<p class="mathEquation">$$ \sum I = 0 \tag{7}$$</p>
+						</div>
+					</section><!--//section-->
+
+					<section class="docs-section" id="item-2-4">
+						<h2 class="section-heading">Lei de Kirchhoff das Tensões</h2>
+						<p>A Segunda Lei de Kirchhoff lida com a conservação de energia dentro de um caminho fechado de circuito: a soma algébrica das tensões em qualquer caminho fechado (laço ou malha) de um circuito é sempre nula. Em outras palavras, a soma algébrica de todas as diferenças de potenciais em torno de um caminho fechado deve ser igual a zero.</p>
+						<div id="eq8" class="callout-block callout-block-info" style="width: 50%; margin: auto;">
+							<p class="mathEquation">$$ \sum V = 0 \tag{8}$$</p>
+						</div>
+						<div class="callout-block callout-block-warning">
+                            <div class="content">
+                                <h4 class="callout-title">
+	                                <span class="callout-icon-holder mr-1">
+		                                <i class="fas fa-bullhorn"></i>
+		                            </span><!--//icon-holder-->
+	                                Atenção
+	                            </h4>
+								<p>Note que o termo <b>soma algébrica</b> indica que as polaridades e sinais das fontes e das quedas de tensão devem ser consideradas.</p>
+                            </div><!--//content-->
+						</div><!--//callout-block-->
+						<p>Retomando a ideia de Kirchhoff da Conservação da Energia, ao percorrermos um caminho fechado de um circuito chegaremos no ponto de início, com o mesmo potencial e nenhuma perda de tensão. Desta forma, a soma das quedas de tensão no caminho fechado deve ser igual à soma das fontes de tensão encontradas.</p>
+						<p>A <a href="#figura14">Figura 14</a> mostra um circuito de exemplo. A LKT diz que a soma algébrica das diferenças de potencial em qualquer caminho fechado deve ser igual a zero. Clique na imagem para mais detalhes.</p>
+						<figure class="figure docs-figure py-3">
+						    <a id="figura14" href="assets/images/features/04-LKT.png" data-title="Lei de Kirchhoff das Tensões (LKT)" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="assets/images/features/04-LKT.gif" alt="" style="width: 500px;"></a>
+						    <figcaption class="figure-caption mt-3">Figura 14 - Lei de Kirchhoff das Tensões (LKT).<br><i class="fas fa-info-circle mr-2"></i>Créditos: imagem acima feita por <a  class="theme-link" href="https://www.linkedin.com/in/francisco-gomes-0b0851163/" target="_blank"><i class="fas fa-external-link-alt"></i>Francisco Gomes</a>.</figcaption>
+						</figure>
+					</section><!--//section-->
+			    </article><!--//docs-article-->
+			    
+			    <article class="docs-article" id="section-3">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">Divisores resistivos</h1>
+					    <section class="docs-intro">
+						    <p>Nesta seção veremos aplicações usuais e casos específicos na análise de circuitos resistivos.</p>
+						</section><!--//docs-intro-->
+				    </header>
+				     <section class="docs-section" id="item-3-1">
+						<h2 class="section-heading">Divisor de tensão</h2>
+						<p>O circuito <b>divisor de tensão</b> é utilizado em situações em que se deseja diminuir uma dada tensão de entrada. O circuito consiste em uma associação série de resistores de forma que a tensão de saída desejada será igual a tensão de entrada reduzida de um fator dado pela relação entre os resistores.</p>
+						<p>Como exemplo, dada uma tensão de entrada de \(V_{in}=15V\) e deseja-se uma tensão de saída de <b>\(V_{out}=9V\)</b>, tem-se:</p>
+						<div id="eq9" class="callout-block callout-block-info" style="width: 50%; margin: auto;">
+							<p class="mathEquation">$$ V_{out}=\frac{R_2}{R_1+R_2} .V_{in} \tag{9}$$</p>
+						</div>
+						<a class="btn btn-success mb-2" style="display: block; margin: auto; width: 50%;" data-toggle="collapse" href="#demonstracao_eq9" role="button" aria-expanded="false" aria-controls="demonstracao_eq9">
+							Demonstração
+						</a>
+						<div class="collapse mb-2" id="demonstracao_eq9">
+							<div class="card card-body" style="margin: auto;">
+								<p class="mathEquation">
+									$$ I_1=I_2=I $$
+									$$ V_{in}=V_{R_1}+V_{R_2} $$
+									$$ V_{in}=I_1.R_1+I_2.R_2 $$
+									$$ V_{in}=I.R_1+I.R_2 $$
+									$$ V_{in}=I(R_1+R_2) $$
+									$$ I=\frac{V_{in}}{R_1+R_2}=\frac{V_{in}}{Req} $$
+									$$ V_2=V_{out}=I.R_2 $$
+									$$ V_{out}=R_2.\frac{V_{in}}{R_1+R_2}=R_2.\frac{V_{in}}{Req} $$
+								</p>
+							</div>
+						</div>
+						<p>Para esse caso, fixando o resistor <b>\(R_1=10k\Omega\)</b>, temos que <b>\(R_2=15k\Omega\)</b>.</p>
+						<figure class="figure docs-figure py-3">
+						    <a id="figura15" href="assets/images/features/05-DivisorTensao.gif" data-title="Divisor de tensão" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="assets/images/features/05-DivisorTensao.gif" alt="" style="width: 500px;"></a>
+						    <figcaption class="figure-caption mt-3">Figura 15 - Divisor de tensão.<br><i class="fas fa-info-circle mr-2"></i>Créditos: imagem acima feita por <a  class="theme-link" href="https://www.linkedin.com/in/francisco-gomes-0b0851163/" target="_blank"><i class="fas fa-external-link-alt"></i>Francisco Gomes</a>.</figcaption>
+						</figure>
+						<div class="callout-block callout-block-success">
+                            <div class="content">
+                                <h4 class="callout-title">
+	                                <span class="callout-icon-holder mr-1">
+		                                <i class="fas fa-heart"></i>
+		                            </span><!--//icon-holder-->
+	                                Dica
+	                            </h4>
+								<p>Uma aplicação para o divisor de tensão é o circuito detector de variação de temperatura. Utilizando-se uma resistência sensível à temperatura, é possível detectar se há variação na temperatura e até dizer qual a temperatura atual. O termistor do tipo <a data-toggle="popover" data-trigger="hover" title="NTC" data-html="true" data-content="O <b>NTC</b>, ou <i>Negative Temperature Coefficient</i>, é um resistor da família dos <b>Termistores</b>, cuja característica é ter um coeficiente de temperatura maior em módulo do que resistores convêncionais. Nos termistores NTC, esse coeficiente é <b>negativo</b>.<img src='./assets/images/features/termistorFormula.png' class='center' width='200'>" href="https://en.wikipedia.org/wiki/Thermistor#NTC" target="_blank">NTC</a> (contrário do <a data-toggle="popover" data-trigger="hover" title="PTC" data-html="true" data-content="O <b>PTC</b>, ou <i>Positive Temperature Coefficient</i>, é um resistor da família dos <b>Termistores</b>, cuja característica é ter um coeficiente de temperatura maior em módulo do que resistores convêncionais. Nos termistores PTC, esse coeficiente é <b>positivo</b>.<img src='./assets/images/features/termistorFormula.png' class='center' width='200'>" href="https://en.wikipedia.org/wiki/Thermistor#PTC" target="_blank">PTC</a>) possui o coeficiente negativo, o que quer dizer que com o aumento da temperatura o valor da resistência diminui. A <a href="#figura16">Figura 16</a> mostra um exemplo dessa aplicação. Um circuito similar a este pode ser encontrado no <a data-toggle="popover" data-trigger="hover" title="BMS" data-html="true" data-content="<img src='./assets/images/features/bms.png' class='center' width='200'>O <b>BMS</b>, ou <i>Battery Management System</i>, é o sistema responsável por garantir a integridade e otimizar a utilização das baterias. Esse sistema é responsável por monitorar, por exemplo, a temperatura das baterias e os níveis de tensão e corrente elétrica do sistema de transmissão. A equipe Fórmula Tesla UFMG um BMS totalmente personalizado para as necessidades do veículo." href="https://formulateslaufmg.wixsite.com/teslaufmg/2019#comp-k8gac469inlineContent"><img src='assets/images/tesla-logo-cinza.png' height='20px'>BMS</a>, para ler as temperaturas das baterias do veículo.</p>
+								<figure class="figure docs-figure py-3">
+									<a id="figura16" href="assets/images/features/06-NTC.gif" data-title="NTC" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="assets/images/features/06-NTC.gif" alt="" style="width: 500px;"></a>
+									<a href="assets/images/features/NTC.png" data-title="NTC" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="assets/images/features/NTC.png" alt="" style="width: 500px;"></a>
+									<figcaption class="figure-caption mt-3">Figura 16 - Leitura de um NTC usando um divisor de tensão.<br><i class="fas fa-info-circle mr-2"></i>Créditos: imagens acima feitas por <a  class="theme-link" href="https://www.linkedin.com/in/francisco-gomes-0b0851163/" target="_blank"><i class="fas fa-external-link-alt"></i>Francisco Gomes</a>.</figcaption>
+								</figure>
+							</div><!--//content-->
+                        </div><!--//callout-block-->
+					</section><!--//section-->
+					
+					<section class="docs-section" id="item-3-2">
+						<h2 class="section-heading">Divisor de corrente</h2>
+						<p>Circuitos divisores de corrente são circuitos em paralelo nos quais a fonte de tensão ou de corrente se divide numa certa quantidade de caminhos paralelos. Num circuito paralelo, todos os componentes têm os seus terminais conectados juntos, dividindo os mesmos dois terminais de entrada/saída. Isso resulta em diferentes caminhos possíveis para a passagem do fluxo de corrente elétrica. Entretanto, as correntes podem ter valores distintos ao passar por cada componente.</p>
+						<p>A característica principal dos circuitos paralelos é que enquanto eles podem produzir diferentes valores de fluxo de corrente através de ramos diferentes, a tensão é comum para todos os caminhos. Isto é, \(V_{R_1} = V_{R_2} = V_{R_3} ... V_{R_n}\). Desta forma, não é necessário encontrar as tensões individuais de resistores fazendo com que as correntes de cada ramo sejam facilmente encontradas a partir da Lei de Ohm ou Lei de Kirchhoff.</p>
+						<p>A <a href="#figura17"></a> apresenta o circuito básico de divisor de corrente, que consiste em dois resistores: \(R_1\) e \(R_2\) em paralelo que dividem a fonte e a corrente de entrada \(I_T\) entre elas. As correntes separadas \(I_{R_1}\) e \(I_{R_2}\) são juntas novamente e antes do retorno à fonte de alimentação. O valor das correntes \(I_{R_1}\) e \(I_{R_2}\) podem ser calculadas pela fómula abaixo.</p>
+						<div id="eq9" class="callout-block callout-block-info" style="width: 50%; margin: auto;">
+							<p class="mathEquation">
+								$$ I_{R_1}=I_T.\frac{R_2}{R_1+R_2} \tag{10} $$
+								$$ I_{R_2}=I_T.\frac{R_1}{R_1+R_2} \tag{11} $$
+							</p>
+						</div>
+						<a class="btn btn-success mb-2" style="display: block; margin: auto; width: 50%;" data-toggle="collapse" href="#demonstracao_eq10_11" role="button" aria-expanded="false" aria-controls="demonstracao_eq10_11">
+							Demonstração
+						</a>
+						<div class="collapse mb-2" id="demonstracao_eq10_11">
+							<div class="card card-body" style="margin: auto;">
+								<p class="mathEquation">
+									$$ I_T=I_{R_1}+I_{R_2} $$
+									$$ I_{R_1}=\frac{V_S}{R_1} \text{ e } I_{R_2}=\frac{V_S}{R_2} $$
+									$$ I_T=\frac{V_S}{R_1}+\frac{V_S}{R_2} = V_S \Big( \frac{1}{R_1}+\frac{1}{R_2} \Big) $$
+									$$ V_S=I_T \Big( \frac{1}{R_1}+\frac{1}{R_2} \Big)^{-1}=I_T \Big( \frac{R_1R_2}{R_1+R_2} \Big) $$
+									$$ Para \text{ } I_{R_1} \rightarrow I_{R_1}=\frac{V_S}{R_1}=I_T \Big( \frac{R_2}{R_1+R_2} \Big) $$
+									$$ Para \text{ } I_{R_2} \rightarrow I_{R_2}=\frac{V_S}{R_2}=I_T \Big( \frac{R_1}{R_1+R_2} \Big) $$
+								</p>
+							</div>
+						</div>
+						<figure class="figure docs-figure py-3">
+						    <a id="figura17" href="assets/images/features/07-DivisorCorrente.gif" data-title="Divisor de corrente" data-toggle="lightbox"><img class="figure-img img-fluid shadow rounded" src="assets/images/features/07-DivisorCorrente.gif" alt="" style="width: 500px;"></a>
+						    <figcaption class="figure-caption mt-3">Figura 17 - Divisor de corrente.<br><i class="fas fa-info-circle mr-2"></i>Créditos: imagem acima feita por <a  class="theme-link" href="https://www.linkedin.com/in/francisco-gomes-0b0851163/" target="_blank"><i class="fas fa-external-link-alt"></i>Francisco Gomes</a>.</figcaption>
+						</figure>
+					</section><!--//section-->
+			    </article><!--//docs-article-->
+			    
+			    <article class="docs-article" id="section-4">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">Intergrations</h1>
+					    <section class="docs-intro">
+						    <p>Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus condimentum nisl id vulputate. Praesent aliquet varius eros interdum suscipit. Donec eu purus sed nibh convallis bibendum quis vitae turpis. Duis vestibulum diam lorem, vitae dapibus nibh facilisis a. Fusce in malesuada odio.</p>
+						</section><!--//docs-intro-->
+				    </header>
+				     <section class="docs-section" id="item-4-1">
+						<h2 class="section-heading">Section Item 4.1</h2>
+						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+					</section><!--//section-->
+					
+					<section class="docs-section" id="item-4-2">
+						<h2 class="section-heading">Section Item 4.2</h2>
+						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+					</section><!--//section-->
+					
+					<section class="docs-section" id="item-4-3">
+						<h2 class="section-heading">Section Item 4.3</h2>
+						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+					</section><!--//section-->
+			    </article><!--//docs-article-->
+
+			    <footer class="footer">
+				    <div class="container text-center py-5">
+					    <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+				        <small class="copyright">Designed with <i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
+				        <ul class="social-list list-unstyled pt-4 mb-0">
+						    <li class="list-inline-item"><a href="#"><i class="fab fa-github fa-fw"></i></a></li> 
+				            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter fa-fw"></i></a></li>
+				            <li class="list-inline-item"><a href="#"><i class="fab fa-slack fa-fw"></i></a></li>
+				            <li class="list-inline-item"><a href="#"><i class="fab fa-product-hunt fa-fw"></i></a></li>
+				            <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f fa-fw"></i></a></li>
+				            <li class="list-inline-item"><a href="#"><i class="fab fa-instagram fa-fw"></i></a></li>
+				        </ul><!--//social-list-->
+				    </div>
+			    </footer>
+		    </div> 
+	    </div>
+    </div><!--//docs-wrapper-->
+    
+   
+       
+    <!-- Javascript -->          
+    <script src="assets/plugins/jquery-3.4.1.min.js"></script>
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+	
+    
+    <!-- Page Specific JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="assets/js/highlight-custom.js"></script> 
+    <script src="assets/plugins/jquery.scrollTo.min.js"></script>
+    <script src="assets/plugins/lightbox/dist/ekko-lightbox.min.js"></script> 
+    <script src="assets/js/docs.js"></script> 
+
+
+</body>
+</html> 
+
