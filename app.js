@@ -13,3 +13,6 @@ app.get('/', function (req, res) {
 });
  
 http.listen(serverPort);
+console.log('Server running. Open http://localhost:' + serverPort.toString() + '/docs-page.html');
+console.log('Make changes on ./www/docs-page.html')
+console.log('Check examples on ./www/example.html')
