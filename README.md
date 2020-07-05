@@ -1,16 +1,17 @@
-# Download and install Node.JS
+# Stepssssss
+## Download and install Node.JS
 https://nodejs.org/en/
 
-# Go to the root directory (`app.js` folder) and run on terminal
+## Go to the root directory (`app.js` folder) and run on terminal
 `npm intall`
 
-# To start the application
+## To start the application
 `node .`
 
-# Open
+## Open
 http://localhost:55555/docs-page.html
 
-# Smile
+## Smile
 :)
 
 # Known issues
