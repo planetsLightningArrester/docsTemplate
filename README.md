@@ -11,3 +11,9 @@ https://nodejs.org/en/
 http://localhost:55555/docs-page.html
 
 # Smile
+:)
+
+# Known issues
+MathJax doesn't like to be inside colapseble `div`s. It doesn't follow the CSS font-size so it might has unexpected behavior on mobile view.
+
+https://github.com/mathjax/MathJax/issues/925
